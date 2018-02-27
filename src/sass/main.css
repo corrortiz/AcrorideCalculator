@@ -1,0 +1,64 @@
+/**** Centers a flex container*/
+@import url("https://fonts.googleapis.com/css?family=Lato|Montserrat&subset=latin-ext");
+:root {
+  --primary-color: #e8edf3;
+  --secondary-color: #e6cf8b;
+  --cta-color: #b56969;
+  --text-color: #22264b; }
+
+html {
+  box-sizing: border-box; }
+  @media (max-width: 599px) {
+    html {
+      font-size: 45%; } }
+  @media (min-width: 600px) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 900px) {
+    html {
+      font-size: 55%; } }
+  @media (min-width: 1200px) {
+    html {
+      font-size: 62.5%; } }
+  @media (min-width: 1800px) {
+    html {
+      font-size: 70%; } }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/***************************************************/
+.screen {
+  width: 100vw; }
+
+.switchRule {
+  position: relative; }
+  .switchRule > div {
+    position: absolute; }
+
+/***************************************************/
+body {
+  font-family: "Montserrat", sans-serif; }
+
+@media (max-width: 599px) {
+  .box {
+    padding: 5rem 0 !important; } }
+
+@media (min-width: 600px) {
+  .box {
+    padding: 5rem 5rem !important; } }
+
+@media (min-width: 900px) {
+  .box {
+    padding: 5rem 15rem !important; } }
+
+@media (min-width: 1200px) {
+  .box {
+    padding: 5rem 10rem !important; } }
+
+@media (min-width: 1800px) {
+  .box {
+    padding: 5rem 12rem !important; } }
+
+.hide {
+  display: none !important; }

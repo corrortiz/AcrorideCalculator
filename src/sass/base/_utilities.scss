@@ -1,0 +1,26 @@
+.box {
+  @include for-phone-only {
+      padding: 5rem 0 !important;
+  }
+  
+  @include for-tablet-portrait-up {
+      padding: 5rem 5rem !important;
+  }
+  
+  @include for-tablet-landscape-up {
+      padding: 5rem 15rem !important;
+  }
+  
+  @include for-desktop-up {
+      padding: 5rem 10rem !important;
+  }
+
+  @include for-big-desktop-up {
+      padding: 5rem 12rem !important;
+  }
+}
+
+
+.hide{
+  display: none !important;
+}
