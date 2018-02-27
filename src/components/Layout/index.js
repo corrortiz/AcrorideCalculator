@@ -8,7 +8,7 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import blue from 'material-ui/colors/blue';
 import deepPurple from 'material-ui/colors/deepPurple';
 //Internal Components
-
+import AppBar from '../AppBar';
 import Routs from '../Routs';
 /*import AppSnackBar from '../AppSnackBar/AppSnackBar';
 */
@@ -35,7 +35,7 @@ const theme = createMuiTheme({
 export const Layout = () => {
   return (
     <MuiThemeProvider theme={theme}>
-      <h1>Kiri</h1>
+      <AppBar/>
       <Routs/>
     </MuiThemeProvider>
   );
