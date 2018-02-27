@@ -31,7 +31,7 @@ const Screen = ({ children }) => <div className="screen">{children}</div>;
  * Basic component for react-router where the routes and their components are declared
  * also the change animation is added by means of react-transition-group
  */
-const Routs = withRouter(({ location }) => (
+export const Routs = withRouter(({ location }) => (
   <Screen>
     <div className="rule">
       <AnimatedSwitch

@@ -32,7 +32,7 @@ const theme = createMuiTheme({
 /**
  * Material UI Theme Wrap
  */
-const Layout = () => {
+export const Layout = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <h1>Kiri</h1>
