@@ -1,18 +1,20 @@
 // Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Lato|Montserrat&subset=latin-ext');
 // Font Variables
-$header-font: 'Lato', sans-serif;
-$body-font: 'Montserrat', sans-serif;
+:root{
+  --header-font: 'Lato', sans-serif;
+  --body-font: 'Montserrat', sans-serif;
+}
 
 body{
-  font-family: $body-font;
+  font-family: var(--body-font);
 }
 
 
 @mixin primaryText{
-  font-family: $header-font;
+  font-family: var(--header-font);
 }
 
 @mixin secondaryText{
-  font-family: $body-font;
+  font-family: var(--body-font);
 }

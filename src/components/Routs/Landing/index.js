@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CalculadoraRuta from '../../CalculadoraRuta';  
 
 /**
  * Landing rout of the app
@@ -7,7 +8,7 @@ export class Landing extends Component {
   render() {
     return (
       <div>
-        <h1>Landing</h1>
+        <CalculadoraRuta />
       </div>
     );
   }

@@ -9,6 +9,7 @@ import blue from 'material-ui/colors/blue';
 import deepPurple from 'material-ui/colors/deepPurple';
 //Internal Components
 import AppBar from '../AppBar';
+import AppSnackBar from '../AppSnackBar';
 import Routs from '../Routs';
 /*import AppSnackBar from '../AppSnackBar/AppSnackBar';
 */
@@ -37,6 +38,7 @@ export const Layout = () => {
     <MuiThemeProvider theme={theme}>
       <AppBar/>
       <Routs/>
+      <AppSnackBar/>
     </MuiThemeProvider>
   );
 };

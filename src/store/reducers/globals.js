@@ -6,7 +6,7 @@ import {
 
 const GlobalsReducerDefaultState = {
   openSnackBar: false,
-  messageSnackBar: '',
+  messageSnackBar: 'Kiri',
   showLoading: false
 };
 
