@@ -1,6 +1,6 @@
-import * as destinos from './destinos';
+import * as destinos from './destinoInicial';
 
-describe('Destinos destinos', () => {
+describe('Destino inicial', () => {
   test('deberia de regresar un destino', () => {
     const lugar = "veracruz" 
     const expectedAction = {

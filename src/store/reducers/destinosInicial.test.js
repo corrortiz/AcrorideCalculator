@@ -1,6 +1,6 @@
-import reducer from './destinos';
+import reducer from './destinoInicial';
 
-describe('Redux Global REDUCER', () => {
+describe('Redux destinosInicial REDUCER', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       destinos:[{ 

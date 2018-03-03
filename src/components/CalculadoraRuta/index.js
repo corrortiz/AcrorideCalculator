@@ -31,6 +31,9 @@ class CalculadoraRuta extends Component {
           <div>
             <InputDestino/>
           </div>
+          <div>
+            <InputDestino/>
+          </div>
         </Paper>
       </div>
     );

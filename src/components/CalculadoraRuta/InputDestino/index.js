@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //Actions
-import { getDestinos } from '../../../store/actions/destinos';
+import { getDestinosInicial, setDestinosInicial } from '../../../store/actions/destinoInicial';
 //MUI Components
 import { withStyles } from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
@@ -46,7 +46,7 @@ class InputDestino extends Component {
   };
 
   buscarDestino = () =>{
-    this.props.getDestinos(this.state.destino);
+    this.props.getDestinosInicial(this.state.destino);
   }
 
   handleClick = event => {
@@ -56,7 +56,7 @@ class InputDestino extends Component {
 
   handleClose = (event, destino) => {
     const interno = event.currentTarget.id;
-    console.log(destino);
+    this.props.setDestinosInicial(destino);
     this.setState(() => ({ open: false, interno }));
   };
 
@@ -142,12 +142,13 @@ class InputDestino extends Component {
 
 const mapStateToProps = state => {
   return {
-    destinos: state.destinos.arregloDeDestinos
+    destinos: state.destinosInicial.arregloDeDestinosIniciales
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  getDestinos: lugar => dispatch(getDestinos(lugar)),
+  getDestinosInicial: lugar => dispatch(getDestinosInicial(lugar)),
+  setDestinosInicial: destinoSeleccionado => dispatch(setDestinosInicial(destinoSeleccionado)),
 });
 
 InputDestino = connect(mapStateToProps, mapDispatchToProps)(InputDestino);
