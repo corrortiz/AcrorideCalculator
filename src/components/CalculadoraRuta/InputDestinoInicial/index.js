@@ -33,9 +33,8 @@ const styles = theme => ({
 /**
  * Input for looking
  */
-class InputDestino extends Component {
+class InputDestinoInicial extends Component {
   state = {
-    destino: '',
     interno: '', 
     open: false,
     anchorEl: null,
@@ -60,6 +59,10 @@ class InputDestino extends Component {
     this.setState(() => ({ open: false, interno }));
   };
 
+  setDestino = (interno) => {
+    this.setState(() => ( interno ));
+  };
+
   renderMenu = arreglo =>{
     return arreglo.map(destino => (
       <MenuItem 
@@ -77,8 +80,8 @@ class InputDestino extends Component {
     const { open, anchorEl, interno} = this.state;
 
     return (
-      <div className="calculadora__destino">
-        <div>
+      <div className="calculadora__destinoInicial">
+        <div className="calculadora__destinoInicial__inputContainer">
           <FormControl className={`${classes.root}`}>
             <InputLabel 
               htmlFor="destino"
@@ -87,7 +90,7 @@ class InputDestino extends Component {
                 
               }}
             >
-              Destino
+              Punto Inicial
             </InputLabel>
             <Input
               id="adornment-destino"
@@ -98,7 +101,7 @@ class InputDestino extends Component {
               type={'text'}
               value={this.state.destino}
               onChange={this.handleChange('destino')}
-              className="calculadora__destino__input "
+              className="calculadora__destinoInicial__inputContainer__input"
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton onClick={this.buscarDestino}>
@@ -109,12 +112,13 @@ class InputDestino extends Component {
             />
           </FormControl>
         </div>
-        <div >
+        <div className="calculadora__destinoInicial__controls">
           <Button
             aria-owns={open ? 'simple-menu' : null}
             aria-haspopup="true"
             onClick={this.handleClick}
-            className="calculadora__destino__menu__button"
+            className="calculadora__destinoInicial__controls__button"
+            variant="raised"
           >
             {interno}
           </Button>
@@ -122,7 +126,7 @@ class InputDestino extends Component {
         <div>
           <FlightTakeoff
             onClick={this.handleClick}
-            className="calculadora__destino__menu__icon"
+            className="calculadora__destinoInicial__controls__icon"
           />
         </div>
         <div>
@@ -151,6 +155,6 @@ const mapDispatchToProps = dispatch => ({
   setDestinosInicial: destinoSeleccionado => dispatch(setDestinosInicial(destinoSeleccionado)),
 });
 
-InputDestino = connect(mapStateToProps, mapDispatchToProps)(InputDestino);
+InputDestinoInicial = connect(mapStateToProps, mapDispatchToProps)(InputDestinoInicial);
 
-export default withStyles(styles)(InputDestino);
+export default withStyles(styles)(InputDestinoInicial);

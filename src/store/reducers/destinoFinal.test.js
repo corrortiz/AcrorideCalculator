@@ -1,15 +1,15 @@
-import reducer from './destinoInicial';
+import reducer from './destinoFinal';
 
-describe('Redux destinosInicial REDUCER', () => {
+describe('Redux destinosFinal REDUCER', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
-      arregloDeDestinosIniciales:[{ 
+      arregloDeDestinosFinales:[{ 
         geojson: "",
         ent_abr: "",
         id_dest: "",
         nombre: ""
       }],
-      destinoInicial:{
+      destinoFinal:{
         geojson: "",
         ent_abr: "",
         id_dest: "",

@@ -94,35 +94,40 @@ body {
   .appBar__toolbar {
     margin: 0 40rem; } }
 
-.calculadora__titulo {
-  font-family: var(--header-font);
-  color: var(--cta-color);
-  text-transform: capitalize;
-  letter-spacing: .5rem;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: 400; }
-
-.calculadora__destino {
+.calculadora {
   display: flex;
-  align-items: center;
-  justify-content: center; }
-  .calculadora__destino__input {
-    font-family: var(--body-font) !important;
-    color: var(--text-color) !important;
-    text-transform: uppercase !important;
-    letter-spacing: .5rem !important;
-    text-align: center !important;
-    font-size: 2rem !important;
-    font-weight: 300 !important; }
-  .calculadora__destino__menu__icon {
-    fill: var(--secondary-color) !important;
-    height: 8rem !important;
-    width: auto !important;
-    padding: 1rem; }
-  .calculadora__destino__menu__button {
-    padding: 1rem;
-    font-family: var(--body-font) !important;
-    color: var(--text-color) !important;
-    font-size: 2rem !important;
-    font-weight: 300 !important; }
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column; }
+  .calculadora__titulo {
+    font-family: var(--header-font);
+    color: var(--cta-color);
+    text-transform: capitalize;
+    letter-spacing: .5rem;
+    font-size: 4rem;
+    font-weight: 400; }
+  .calculadora__destinoInicial {
+    display: flex;
+    align-items: center; }
+    .calculadora__destinoInicial__inputContainer {
+      margin-right: auto; }
+      .calculadora__destinoInicial__inputContainer__input {
+        font-family: var(--body-font) !important;
+        color: var(--text-color) !important;
+        text-transform: uppercase !important;
+        letter-spacing: .5rem !important;
+        text-align: center !important;
+        font-size: 2rem !important;
+        font-weight: 300 !important; }
+    .calculadora__destinoInicial__controls__icon {
+      fill: var(--secondary-color) !important;
+      height: 8rem !important;
+      width: auto !important;
+      padding: 1rem; }
+    .calculadora__destinoInicial__controls__button {
+      padding: 1rem;
+      font-family: var(--body-font) !important;
+      color: var(--text-color) !important;
+      font-size: 2rem !important;
+      font-weight: 300 !important;
+      width: 50vw; }

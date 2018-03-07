@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 //Internal Controls
-import InputDestino from './InputDestino';
+import InputDestinoInicial from './InputDestinoInicial';
+import InputDestinoFinal from './InputDestinoFinal';
 
 const styles = theme => ({
   root:theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
+    width: '85vw',
   }),
 });
 
@@ -28,12 +30,8 @@ class CalculadoraRuta extends Component {
           <div>
             <h1 className="calculadora__titulo">Calculo de cotización</h1>
           </div>
-          <div>
-            <InputDestino/>
-          </div>
-          <div>
-            <InputDestino/>
-          </div>
+          <InputDestinoInicial/>
+          <InputDestinoFinal/>
         </Paper>
       </div>
     );

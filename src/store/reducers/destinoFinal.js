@@ -1,16 +1,16 @@
 import {
-  GET_DESTINOS_INICIAL,
-  SET_DESTINO_INICIAL
-} from '../actions/destinoInicial';
+  GET_DESTINOS_FINAL,
+  SET_DESTINO_FINAL
+} from '../actions/destinoFinal';
 
 const DestinoReducerDefaultState = {
-  arregloDeDestinosIniciales:[{ 
+  arregloDeDestinosFinales:[{ 
       geojson: "",
       ent_abr: "",
       id_dest: "",
       nombre: ""
     }],
-  destinoInicial:{
+  destinoFinal:{
     geojson: "",
     ent_abr: "",
     id_dest: "",
@@ -20,15 +20,15 @@ const DestinoReducerDefaultState = {
 
 export default (state = DestinoReducerDefaultState, action) => {
   switch (action.type) {
-    case GET_DESTINOS_INICIAL:
+    case GET_DESTINOS_FINAL:
       return {
         ...state,
-        arregloDeDestinosIniciales: action.destinosInicial.data.data
+        arregloDeDestinosFinales: action.destinosFinal.data.data
       };
-    case SET_DESTINO_INICIAL:
+    case SET_DESTINO_FINAL:
       return {
         ...state,
-        destinoInicial: action.destionoSeleccionado
+        destinoFinal: action.destionoSeleccionado
       };
     default:
       return state;
