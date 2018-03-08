@@ -10,7 +10,7 @@ describe('Redux Global REDUCER', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       openSnackBar: false,
-      messageSnackBar: '',
+      messageSnackBar: 'Kiri',
       showLoading: false
     });
   });
