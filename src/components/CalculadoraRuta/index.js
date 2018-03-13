@@ -6,7 +6,9 @@ import Paper from 'material-ui/Paper';
 //Internal Controls
 import InputDestinoInicial from './InputDestinoInicial';
 import InputDestinoFinal from './InputDestinoFinal';
+import Resultados from './Resultados';
 
+//CSS in JS
 const styles = theme => ({
   root:theme.mixins.gutters({
     paddingTop: 16,
@@ -20,8 +22,6 @@ const styles = theme => ({
  * Componente layout para la calculadora de la creacion del presupuesto
  */
 class CalculadoraRuta extends Component {
-
-
   render(){
     const { classes } = this.props;
     return (
@@ -32,6 +32,7 @@ class CalculadoraRuta extends Component {
           </div>
           <InputDestinoInicial/>
           <InputDestinoFinal/>
+          <Resultados/>
         </Paper>
       </div>
     );

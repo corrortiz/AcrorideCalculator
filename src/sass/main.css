@@ -131,3 +131,16 @@ body {
       font-size: 2rem !important;
       font-weight: 300 !important;
       width: 50vw; }
+  .calculadora__resultados {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; }
+    .calculadora__resultados__button {
+      margin-right: auto !important; }
+    .calculadora__resultados__principal {
+      font-family: var(--header-font);
+      color: var(--cta-color);
+      text-transform: capitalize;
+      letter-spacing: .5rem;
+      font-size: 6rem;
+      font-weight: 400; }

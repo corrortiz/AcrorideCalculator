@@ -52,4 +52,23 @@
     }
 
   }
+
+  &__resultados{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__button{
+      margin-right: auto !important;
+    }
+
+    &__principal{
+      font-family: var(--header-font);
+      color: var(--cta-color);
+      text-transform: capitalize;
+      letter-spacing: .5rem;
+      font-size: 6rem;
+      font-weight: 400;
+    }
+  }
 }

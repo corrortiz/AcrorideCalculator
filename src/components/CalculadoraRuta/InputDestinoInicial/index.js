@@ -64,6 +64,12 @@ class InputDestinoInicial extends Component {
   };
 
   renderMenu = arreglo =>{
+    if(arreglo === undefined){
+      return  <MenuItem onClick={(event)=>this.handleClose(event, "Buscando")}>
+                Buscando
+              </MenuItem>
+    }
+
     return arreglo.map(destino => (
       <MenuItem 
         onClick={(event)=>this.handleClose(event, destino)} 

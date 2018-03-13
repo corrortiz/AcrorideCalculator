@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import storeConfig from '../../store/storeConfig';
 //MUI Components and Config
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import blue from 'material-ui/colors/blue';
-import deepPurple from 'material-ui/colors/deepPurple';
 //Internal Components
 import AppBar from '../AppBar';
 import AppSnackBar from '../AppSnackBar';
@@ -17,12 +15,13 @@ import Routs from '../Routs';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      ...blue,
-      500:"#e8edf3"
+      main:"#e8edf3"
     },
     secondary: {
-      ...deepPurple,
-      500:"#e6cf8b"
+      main:"#e6cf8b"
+    },
+    error:{
+      main:"#b56969"
     }
   },
   typography: {
