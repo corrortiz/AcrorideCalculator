@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.headers.contentType = 'application/json';
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = "*";
 //API URL
-const ROOT_URL = `http://gaia.inegi.org.mx/sakbe_v3.1/optima`;
+const ROOT_URL = `http://gaia.inegi.org.mx/sakbe_v3.1/cuota`;
 //TODO:Change a una ENV en produccion 
 const API_KEY = process.env.REACT_APP_API_KEY;
 

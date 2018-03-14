@@ -18,7 +18,7 @@ export default (state = ResultadoRutaDefaultState, action) => {
     case GET_RESULTADOS_RUTA:
       return {
         ...state,
-        resultadoCalculoRuta: action.calculoRuta.data
+        resultadoCalculoRuta: action.calculoRuta.data.data
       };
     default:
       return state;

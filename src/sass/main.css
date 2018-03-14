@@ -1,4 +1,5 @@
 /**** Centers a flex container*/
+/**** Centers a flex container*/
 @import url("https://fonts.googleapis.com/css?family=Lato|Montserrat&subset=latin-ext");
 :root {
   --primary-color: #e8edf3;
@@ -137,10 +138,24 @@ body {
     justify-content: flex-start; }
     .calculadora__resultados__button {
       margin-right: auto !important; }
-    .calculadora__resultados__principal {
-      font-family: var(--header-font);
-      color: var(--cta-color);
-      text-transform: capitalize;
-      letter-spacing: .5rem;
-      font-size: 6rem;
-      font-weight: 400; }
+    .calculadora__resultados__loading {
+      margin-right: 2rem; }
+    .calculadora__resultados__contenedorEtiquetas {
+      margin-right: 2rem;
+      transition: all 3s; }
+      .calculadora__resultados__contenedorEtiquetas__texto {
+        font-family: var(--header-font);
+        color: var(--cta-color);
+        text-transform: capitalize;
+        letter-spacing: .5rem;
+        font-size: 2rem;
+        font-weight: 200; }
+    .calculadora__resultados__contenedorResultados {
+      margin-right: 10rem; }
+      .calculadora__resultados__contenedorResultados__res {
+        font-family: var(--header-font);
+        color: var(--secondary-color);
+        text-transform: capitalize;
+        letter-spacing: .5rem;
+        font-size: 2rem;
+        font-weight: 400; }

@@ -61,14 +61,35 @@
     &__button{
       margin-right: auto !important;
     }
+    &__loading{
+      margin-right: 2rem;
+    }
 
-    &__principal{
-      font-family: var(--header-font);
-      color: var(--cta-color);
-      text-transform: capitalize;
-      letter-spacing: .5rem;
-      font-size: 6rem;
-      font-weight: 400;
+    &__contenedorEtiquetas{
+      margin-right: 2rem;
+      transition: all 3s;
+      
+      &__texto{
+        font-family: var(--header-font);
+        color: var(--cta-color);
+        text-transform: capitalize;
+        letter-spacing: .5rem;
+        font-size: 2rem;
+        font-weight: 200;
+      }
+    }
+
+    &__contenedorResultados{
+      margin-right: 10rem;
+      
+      &__res{
+        font-family: var(--header-font);
+        color: var(--secondary-color);
+        text-transform: capitalize;
+        letter-spacing: .5rem;
+        font-size: 2rem;
+        font-weight: 400;
+      }
     }
   }
 }

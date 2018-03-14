@@ -20,3 +20,10 @@
   align-items: center;
   justify-content: center;
 }
+
+/**** Centers a flex container*/
+@mixin flexInit{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

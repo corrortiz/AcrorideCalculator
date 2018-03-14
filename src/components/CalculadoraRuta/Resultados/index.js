@@ -6,6 +6,7 @@ import { getResultadoRuta } from '../../../store/actions/resultadosRuta';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Send from 'material-ui-icons/Send';
+import { CircularProgress } from 'material-ui/Progress';
 //CSS in JS
 const styles = theme => ({
   button: {
@@ -20,9 +21,18 @@ const styles = theme => ({
  * Componente que mustra y calcula el costo de la ruta
  */
 class Resultados extends Component {
+  state = {
+    showloading: false
+  }
 
-  handleClick = () =>{
-    this.props.getResultadoRuta(this.props.inicial, this.props.final);
+  changeLoadin = () => {
+    this.setState((prevState)=> ({showloading: !prevState.showloading}));
+  }
+
+  handleClick = async () =>{
+    await this.changeLoadin();
+    await this.props.getResultadoRuta(this.props.inicial, this.props.final);
+    await this.changeLoadin();
   }
 
   render() {
@@ -38,7 +48,19 @@ class Resultados extends Component {
           Calcula
           <Send className={classes.rightIcon} />
         </Button>
-        <h1 className="calculadora__resultados__principal">{`$${resultadoRuta.costo_caseta}`}</h1>
+        <div className="calculadora__resultados__loading">
+          {this.state.showloading && <CircularProgress className={classes.progress} color="secondary" size={70}/>}
+        </div>
+        <div className="calculadora__resultados__contenedorEtiquetas">
+          <p className="calculadora__resultados__contenedorEtiquetas__texto">Casetas</p> 
+          <p className="calculadora__resultados__contenedorEtiquetas__texto">Distancia</p> 
+          <p className="calculadora__resultados__contenedorEtiquetas__texto">Tiempo</p> 
+        </div>
+        <div className="calculadora__resultados__contenedorResultados">
+          <p className="calculadora__resultados__contenedorResultados__res">{`$${resultadoRuta.costo_caseta}`}</p>
+          <p className="calculadora__resultados__contenedorResultados__res">{`${resultadoRuta.long_km} Km`}</p>
+          <p className="calculadora__resultados__contenedorResultados__res">{`${resultadoRuta.tiempo_min} Min`}</p>
+        </div>    
       </div>
     );
   }
