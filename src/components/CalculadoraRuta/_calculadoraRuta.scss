@@ -3,14 +3,22 @@
   justify-content: center;
   align-items: stretch;
   flex-direction: column;
+  
+  &__header{
+      font-family: var(--header-font);
+      color: var(--cta-color);
+      text-transform: capitalize;
+      letter-spacing: .5rem;
+      font-size: 2rem;
+      font-weight: 400;
+      display: flex;
+    &__titulo{
+      margin-right: auto;
+    }
 
-  &__titulo{
-    font-family: var(--header-font);
-    color: var(--cta-color);
-    text-transform: capitalize;
-    letter-spacing: .5rem;
-    font-size: 4rem;
-    font-weight: 400;
+    &__resultado{
+      margin-right: 4rem;
+    }
   }
 
   &__destinoInicial{
@@ -28,7 +36,6 @@
         text-align: center !important;
         font-size: 2rem !important;
         font-weight: 300 !important;
-        
       }
     }
 
@@ -89,6 +96,25 @@
         letter-spacing: .5rem;
         font-size: 2rem;
         font-weight: 400;
+      }
+    }
+  }
+
+  &__extra{
+    @include flexCenter;
+    flex-wrap: wrap;
+
+    &__container{
+      
+      &__input{
+        font-family: var(--body-font) !important;
+        color: var(--text-color) !important;
+        text-transform: uppercase !important;
+        letter-spacing: .5rem !important;
+        text-align: center !important;
+        font-size: 2rem !important;
+        font-weight: 300 !important;
+        margin: 1rem;
       }
     }
   }
