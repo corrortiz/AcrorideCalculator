@@ -1,1 +1,0 @@
-Acroride Client Side APP
