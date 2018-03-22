@@ -19,7 +19,7 @@ export const getDestinosInicial = async lugar => {
     },
     headers:{
       //TODO: Change te URL
-      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Origin": "*",
     }
   })
 

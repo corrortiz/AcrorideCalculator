@@ -2,7 +2,8 @@
   "name": "acro_ride_client_side",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://corrortiz.github.io/AcrorideCalculator/",
+  "homepage": "https://corrortiz.github.io/AcrorideCalculator",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^1.1.0",
