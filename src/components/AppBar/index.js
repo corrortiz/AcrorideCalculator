@@ -23,7 +23,7 @@ export class HeaderAppBar extends Component {
         <AppBar className={classes.root} position={'sticky'}>
           <Toolbar className="appBar__toolbar">
               <Typography variant="title" color="inherit" className={"appBar__title"}>
-                Acroride
+                Acroride Calculadora de Cotizaciónes
               </Typography>
           </Toolbar>
         </AppBar>

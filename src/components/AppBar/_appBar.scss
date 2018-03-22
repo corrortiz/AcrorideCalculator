@@ -15,15 +15,15 @@
     }
 
     @include for-tablet-landscape-up{
-      margin: 0 10rem ;
+      margin: 0 5rem ;
     }
 
     @include for-desktop-up{
-      margin: 0 20rem ;
+      margin: 0 5rem ;
     }
 
     @include for-big-desktop-up{
-      margin: 0 40rem ;
+      margin: 0 8rem ;
     }
   }
 }
