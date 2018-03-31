@@ -9,6 +9,7 @@ import InputDestinoInicial from './InputDestinoInicial';
 import InputDestinoFinal from './InputDestinoFinal';
 import Resultados from './Resultados';
 import InputExtra from './InputExtra';
+import ResultadoTotal from './ResultadoTotal';
 //API de Formato
 import numeral from 'numeral';
 
@@ -59,6 +60,42 @@ class CalculadoraRuta extends Component {
     return numeral(resultado).format('$0,0.00');
   }
 
+  sumaIva = () =>{
+    let viaticos = Number(this.state.Viaticos);
+    let comidas = Number(this.state.Comidas);
+    let salario = Number(this.state.Salario);
+    let hotel = Number(this.state.Hotel);
+    let gasolina = Number(this.state.Gasolina);
+    let derechoDePiso = Number(this.state.DerechoPiso);
+    let guia = Number(this.state.Guia);
+    let lunchBox = Number(this.state.LunchBox);
+    let ganancias = Number(this.state.Ganancias);
+    let casetas = Number(this.props.resultadoRuta.costo_caseta);
+    let otro = Number(this.state.Otro);
+    let resultado = viaticos+comidas+salario+hotel+gasolina+derechoDePiso+guia+lunchBox+ganancias+casetas+otro;
+
+    let IVA = resultado * .16;
+    return numeral(IVA).format('$0,0.00');
+  }
+
+  sumaTotal = () =>{
+    let viaticos = Number(this.state.Viaticos);
+    let comidas = Number(this.state.Comidas);
+    let salario = Number(this.state.Salario);
+    let hotel = Number(this.state.Hotel);
+    let gasolina = Number(this.state.Gasolina);
+    let derechoDePiso = Number(this.state.DerechoPiso);
+    let guia = Number(this.state.Guia);
+    let lunchBox = Number(this.state.LunchBox);
+    let ganancias = Number(this.state.Ganancias);
+    let casetas = Number(this.props.resultadoRuta.costo_caseta);
+    let otro = Number(this.state.Otro);
+    let resultado = viaticos+comidas+salario+hotel+gasolina+derechoDePiso+guia+lunchBox+ganancias+casetas+otro;
+
+    let IVA = (resultado * .16) + resultado;
+    return numeral(IVA).format('$0,0.00');
+  }
+
   render(){
     const { classes } = this.props;
     return (
@@ -66,7 +103,7 @@ class CalculadoraRuta extends Component {
         <Paper className={`calculadora ${classes.root}`} elevation={4}>
           <div className="calculadora__header">
             <h1 className="calculadora__header__titulo">Cotización</h1>
-            <h1 className="calculadora__header__resultado">{this.sumaTodo()}</h1>
+            <ResultadoTotal IVA={this.sumaIva()} subTotal={this.sumaTodo()} total={this.sumaTotal()}/>
           </div>
           <InputDestinoInicial/>
           <InputDestinoFinal/>

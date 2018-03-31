@@ -111,7 +111,9 @@ body {
     .calculadora__header__titulo {
       margin-right: auto; }
     .calculadora__header__resultado {
-      margin-right: 4rem; }
+      margin-right: 4rem;
+      font-size: 1rem;
+      font-weight: 400; }
   .calculadora__destinoInicial {
     display: flex;
     align-items: center; }
@@ -164,6 +166,10 @@ body {
         letter-spacing: .5rem;
         font-size: 2rem;
         font-weight: 400; }
+  .calculadora__resultadosTotales {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
   .calculadora__extra {
     display: flex;
     align-items: center;
