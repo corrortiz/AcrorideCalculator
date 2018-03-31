@@ -36,7 +36,7 @@ const styles = theme => ({
 class InputDestinoInicial extends Component {
   state = {
     interno: '',
-    destino: "Xalapa", 
+    destino: "", 
     open: false,
     anchorEl: null,
   };

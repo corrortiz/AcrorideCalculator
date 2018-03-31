@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import jsPDF from 'jspdf';
 //Material UI Controls
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
+import Button from 'material-ui/Button';
+import Save from 'material-ui-icons/Save';
 //Internal Controls
 import InputDestinoInicial from './InputDestinoInicial';
 import InputDestinoFinal from './InputDestinoFinal';
@@ -21,6 +24,14 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     width: '85vw',
   }),
+  button: {
+    margin: theme.spacing.unit,
+    color: 'white',
+    background: "#b56969"
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
+  },
 });
 
 /**
@@ -96,6 +107,24 @@ class CalculadoraRuta extends Component {
     return numeral(IVA).format('$0,0.00');
   }
 
+  makePdf = () =>{
+    let doc = new jsPDF()
+    
+    doc.setFontSize(22);
+    doc.text('Acroride Cotizacion ', 10, 20)
+    doc.setFontSize(16);
+    doc.text('A continuación le presento la cotización solicitada  ', 10, 40)
+    doc.text(`Servicio`, 10, 65)
+    doc.text(`-- ${this.sumaTodo()}`, 150, 65)
+    doc.text(`IVA`, 10, 75)
+    doc.text(`--${this.sumaIva()}`, 155, 75)
+    doc.text(`________________________________________________________`, 10, 78)
+    doc.text(`Total`, 10, 85)
+    doc.text(`-- ${this.sumaTotal()}`, 150, 85)
+    
+    doc.save('cotización.pdf')
+  }
+
   render(){
     const { classes } = this.props;
     return (
@@ -119,6 +148,15 @@ class CalculadoraRuta extends Component {
             <InputExtra nombre="LunchBox" monto={this.state.LunchBox} cambioState={this.handleChange} />
             <InputExtra nombre="Ganancias" monto={this.state.Ganancias} cambioState={this.handleChange} />
             <InputExtra nombre="Otro" monto={this.state.Otro} cambioState={this.handleChange} />
+            <Button 
+              className={`${classes.button}`}
+              variant="raised" 
+              color="secondary"
+              onClick={this.makePdf}
+            >
+              Guarda
+              <Save className={classes.rightIcon} />
+            </Button>
           </div>
         </Paper>
       </div>
