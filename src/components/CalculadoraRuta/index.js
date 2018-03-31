@@ -35,7 +35,8 @@ class CalculadoraRuta extends Component {
     DerechoPiso: 0,
     Guia: 0,
     LunchBox: 0,
-    Ganancias: 0 
+    Ganancias: 0,
+    Otro: 0 
   };
 
   handleChange = prop => event => {
@@ -53,7 +54,8 @@ class CalculadoraRuta extends Component {
     let lunchBox = Number(this.state.LunchBox);
     let ganancias = Number(this.state.Ganancias);
     let casetas = Number(this.props.resultadoRuta.costo_caseta);
-    let resultado = viaticos+comidas+salario+hotel+gasolina+derechoDePiso+guia+lunchBox+ganancias+casetas;
+    let otro = Number(this.state.Otro);
+    let resultado = viaticos+comidas+salario+hotel+gasolina+derechoDePiso+guia+lunchBox+ganancias+casetas+otro;
     return numeral(resultado).format('$0,0.00');
   }
 
@@ -79,6 +81,7 @@ class CalculadoraRuta extends Component {
             <InputExtra nombre="Guia" monto={this.state.Guia} cambioState={this.handleChange} />
             <InputExtra nombre="LunchBox" monto={this.state.LunchBox} cambioState={this.handleChange} />
             <InputExtra nombre="Ganancias" monto={this.state.Ganancias} cambioState={this.handleChange} />
+            <InputExtra nombre="Otro" monto={this.state.Otro} cambioState={this.handleChange} />
           </div>
         </Paper>
       </div>

@@ -1,7 +1,5 @@
 import axios from 'axios';
-//CONF of Axios
-axios.defaults.headers.contentType = 'application/json';
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = "*";
+
 //API URL
 const ROOT_URL = `http://gaia.inegi.org.mx/sakbe_v3.1/buscadestino`;
 //TODO:Change a una ENV en produccion 
@@ -18,11 +16,11 @@ export const getDestinosInicial = async lugar => {
       buscar: lugar
     },
     headers:{
-      //TODO: Change te URL
-      "Access-Control-Allow-Origin": "http://localhost:3000",
+      //TODO: Change the URL
+      "Access-Control-Allow-Origin": "*",
     }
   })
-
+  
   return {
     type: GET_DESTINOS_INICIAL,
     destinosInicial

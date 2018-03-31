@@ -35,7 +35,8 @@ const styles = theme => ({
  */
 class InputDestinoInicial extends Component {
   state = {
-    interno: '', 
+    interno: '',
+    destino: "Xalapa", 
     open: false,
     anchorEl: null,
   };
@@ -64,9 +65,15 @@ class InputDestinoInicial extends Component {
   };
 
   renderMenu = arreglo =>{
-    if(arreglo === undefined){
+    if(!arreglo){
       return  <MenuItem onClick={(event)=>this.handleClose(event, "Buscando")}>
                 Buscando
+              </MenuItem>
+    }
+
+    if(arreglo[0].nombre===""){
+      return  <MenuItem onClick={(event)=>this.handleClose(event, "Sin Resultados")}>
+                Sin Resultados
               </MenuItem>
     }
 
