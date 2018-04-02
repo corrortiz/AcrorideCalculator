@@ -11,6 +11,8 @@ import { CircularProgress } from 'material-ui/Progress';
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
+    color: 'white',
+    background: "#b56969"
   },
   rightIcon: {
     marginLeft: theme.spacing.unit,

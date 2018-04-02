@@ -13,7 +13,14 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1366, height: 768})
+  mainWindow = new BrowserWindow({
+    width:1200,
+    height:720,
+    webPreferences:{
+      webSecurity: false,
+      allowRunningInsecureContent: true
+    }
+  });
 
   // and load the index.html of the app.
   const startUrl = process.env.ELECTRON_START_URL || url.format({
@@ -40,6 +47,8 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+app.commandLine.appendSwitch('disable-web-security');
+app.commandLine.appendSwitch('allow_displaying_insecure_content');
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
