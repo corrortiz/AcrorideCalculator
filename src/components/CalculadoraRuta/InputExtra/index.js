@@ -28,11 +28,10 @@ const styles = theme => ({
 
 class InputExtra extends Component {
   render() {
-    const {nombre, monto, cambioState, classes} = this.props;
+    const {nombre, monto, cambioState, classes, idProps} = this.props;
     return (
         <div className="calculadora__extra__container">
           <FormControl className={`${classes.root}`}>
-            
             <InputLabel 
                 htmlFor={nombre}
                 FormControlClasses={{
@@ -50,7 +49,7 @@ class InputExtra extends Component {
               }}
               type={'number'}
               value={monto}
-              onChange={cambioState(nombre)}
+              onChange={cambioState(idProps)}
               className="calculadora__extra__container__input"
               endAdornment={
                 <InputAdornment position="end">
@@ -70,7 +69,8 @@ class InputExtra extends Component {
 InputExtra.propTypes = {
   nombre: PropTypes.string.isRequired,
   monto: PropTypes.number.isRequired,
-  cambioState: PropTypes.func.isRequired
+  cambioState: PropTypes.func.isRequired,
+  idProps: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(InputExtra);
