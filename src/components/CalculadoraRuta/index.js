@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import jsPDF from "jspdf";
+import moment from "moment";
 //Material UI Controls
 import { withStyles } from "material-ui/styles";
 import Paper from "material-ui/Paper";
@@ -36,6 +37,9 @@ const styles = theme => ({
  */
 class CalculadoraRuta extends Component {
   state = {
+    FechaSericio: moment(Date.now()).format("YYYY-MM-DD"),
+    Cliente: "",
+    Vehiculo: "",
     Viaticos: 0,
     Comidas: 0,
     Salario: 0,
@@ -45,7 +49,8 @@ class CalculadoraRuta extends Component {
     Guia: 0,
     LunchBox: 0,
     Ganancias: 0,
-    Otro: 0
+    Otro: 0,
+    Descripcion: ""
   };
 
   handleChange = prop => event => {
@@ -143,18 +148,27 @@ class CalculadoraRuta extends Component {
     doc.setFontSize(22);
     doc.text("Acroride Cotizacion ", 10, 20);
     doc.setFontSize(16);
-    doc.text("A continuación le presento la cotización solicitada  ", 10, 40);
-    doc.text(`Servicio`, 10, 65);
-    doc.text(`-- ${this.sumaTodo()}`, 150, 65);
-    doc.text(`IVA`, 10, 75);
-    doc.text(`--${this.sumaIva()}`, 155, 75);
+    doc.text(`Fecha: ${moment(Date.now()).format("YYYY-MM-DD")}`, 10, 30);
+    doc.text(`Cotizacion para  ${this.state.Cliente}`, 10, 50);
+    doc.text(`Fecha Servicio: ${this.state.FechaSericio}`, 10, 60);
+    doc.text(
+      `Descripcion del servicio: ${this.state.Descripcion} en el vehiculo: ${
+        this.state.Vehiculo
+      }`,
+      10,
+      75
+    );
+    doc.text(`Servicio`, 10, 160);
+    doc.text(`-- ${this.sumaTodo()}`, 150, 160);
+    doc.text(`IVA`, 10, 170);
+    doc.text(`--${this.sumaIva()}`, 150, 170);
     doc.text(
       `________________________________________________________`,
       10,
-      78
+      180
     );
-    doc.text(`Total`, 10, 85);
-    doc.text(`-- ${this.sumaTotal()}`, 150, 85);
+    doc.text(`Total`, 10, 190);
+    doc.text(`-- ${this.sumaTotal()}`, 150, 190);
 
     doc.save("cotización.pdf");
   };
@@ -173,6 +187,27 @@ class CalculadoraRuta extends Component {
             />
           </div>
           <div className="calculadora__extra">
+            <InputExtra
+              nombre="Fecha Servicio"
+              monto={this.state.FechaSericio}
+              cambioState={this.handleChange}
+              idProps="FechaSericio"
+              type="Date"
+            />
+            <InputExtra
+              nombre="Cliente"
+              monto={this.state.Cliente}
+              cambioState={this.handleChange}
+              idProps="Cliente"
+              type="text"
+            />
+            <InputExtra
+              nombre="Vehiculo"
+              monto={this.state.Vehiculo}
+              cambioState={this.handleChange}
+              idProps="Vehiculo"
+              type="text"
+            />
             <InputExtra
               nombre="Viaticos"
               monto={this.state.Viaticos}
@@ -219,7 +254,7 @@ class CalculadoraRuta extends Component {
               nombre="Lunch Box"
               monto={this.state.LunchBox}
               cambioState={this.handleChange}
-              idProps="LunchVox"
+              idProps="LunchBox"
             />
             <InputExtra
               nombre="Ganancias"
@@ -232,6 +267,13 @@ class CalculadoraRuta extends Component {
               monto={this.state.Otro}
               cambioState={this.handleChange}
               idProps="Otro"
+            />
+            <InputExtra
+              nombre="Descripcion del servicio"
+              monto={this.state.Descripcion}
+              cambioState={this.handleChange}
+              idProps="Descripcion"
+              type="text"
             />
             <Button
               className={`${classes.button}`}
