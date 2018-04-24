@@ -5,7 +5,8 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
-
+//Componentes internos
+import CambioRuta from '../CambioRuta';
 //CSS in JS
 const styles = {
   root: {},
@@ -23,9 +24,10 @@ export class HeaderAppBar extends Component {
         <AppBar className={classes.root} position={'sticky'}>
           <Toolbar className="appBar__toolbar">
               <Typography variant="title" color="inherit" className={"appBar__title"}>
-                Acroride Calculadora de Cotizaciónes
+                Cotizaciónes
               </Typography>
           </Toolbar>
+          <CambioRuta />
         </AppBar>
       </div>
     );

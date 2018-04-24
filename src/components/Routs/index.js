@@ -1,10 +1,10 @@
-// @flow
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 //Animate Routs
 import { spring, AnimatedSwitch } from 'react-router-transition';
 //Internal Routs
 import Landing from './Landing';
+import Calculadora from './Calculadora';
 
 function glide(val) {
   return spring(val, {
@@ -43,7 +43,8 @@ export const Routs = withRouter(({ location }) => (
         className="switchRule"
         location={location}
       >
-        <Route exact path="/" component={Landing} />
+        <Route path="/" component={Landing} />
+        <Route path="otra-calculadora" component={Calculadora} />
       </AnimatedSwitch>
     </div>
   </Screen>

@@ -36,7 +36,9 @@ export const Layout = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <AppBar/>
-      <Routs/>
+        <section>
+          <Routs/>
+        </section>
       <AppSnackBar/>
     </MuiThemeProvider>
   );

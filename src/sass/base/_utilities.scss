@@ -20,7 +20,34 @@
   }
 }
 
+@mixin tercearyTextWhite{
+  color: var(--primary-color) !important;
+  font-family: var(--header-font);
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
 
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 3s;
+
+    &__bottonNavigation{
+      background-color: var(--secondary-color) !important;
+      &__tabs{
+        @include tercearyTextWhite;  
+      }
+    }
+}  
+ 
 .hide{
   display: none !important;
 }
+
+.screen{
+    width: 100vw;
+}
+  
+

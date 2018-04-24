@@ -31,7 +31,7 @@ html {
   box-sizing: inherit; }
 
 /***************************************************/
-.screen {
+.rule {
   width: 100vw; }
 
 .switchRule {
@@ -67,8 +67,25 @@ body {
   .box {
     padding: 5rem 12rem !important; } }
 
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 3s; }
+  .header__bottonNavigation {
+    background-color: var(--secondary-color) !important; }
+    .header__bottonNavigation__tabs {
+      color: var(--primary-color) !important;
+      font-family: var(--header-font);
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      font-size: 1.5rem;
+      font-weight: 300; }
+
 .hide {
   display: none !important; }
+
+.screen {
+  width: 100vw; }
 
 .appBar__title {
   margin-right: 1rem !important;
