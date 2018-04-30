@@ -1,0 +1,60 @@
+:root{
+  --primary-color:#e8edf3;
+  --secondary-color:#e6cf8b;
+  --cta-color:#b56969;        
+  --text-color:#22264b;
+}
+
+
+html{
+  box-sizing: border-box;
+  @include for-phone-only {
+    font-size: 45%;
+  }
+  @include for-tablet-portrait-up {
+    font-size: 50%;
+  }
+  @include for-tablet-landscape-up {
+    font-size: 55%;
+  }
+  @include for-desktop-up {
+    font-size: 62.5%
+  }
+  @include for-big-desktop-up {
+    font-size: 70%
+  }
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+//Clases necesarias para cambiar de ruta
+/***************************************************/
+.screen{                                           //
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;                                 //
+}                                                  // 
+                                                   // 
+.switchRule {                                      //
+  position: relative;                              //
+                                                   //
+  & > div {                                        //
+    position: absolute;                            //
+  }                                                //
+}
+
+.routeRule {
+  position: relative;
+
+  & > div {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+//
+/***************************************************/

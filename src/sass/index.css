@@ -1,0 +1,104 @@
+/**** Centers a flex container*/
+/**** Centers a flex container*/
+@import url("https://fonts.googleapis.com/css?family=Lato|Montserrat&subset=latin-ext");
+:root {
+  --primary-color:#e8edf3;
+  --secondary-color:#e6cf8b;
+  --cta-color:#b56969;
+  --text-color:#22264b; }
+
+html {
+  box-sizing: border-box; }
+  @media (max-width: 599px) {
+    html {
+      font-size: 45%; } }
+  @media (min-width: 600px) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 900px) {
+    html {
+      font-size: 55%; } }
+  @media (min-width: 1200px) {
+    html {
+      font-size: 62.5%; } }
+  @media (min-width: 1800px) {
+    html {
+      font-size: 70%; } }
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/***************************************************/
+.screen {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto; }
+
+.switchRule {
+  position: relative; }
+  .switchRule > div {
+    position: absolute; }
+
+.routeRule {
+  position: relative; }
+  .routeRule > div {
+    position: absolute;
+    width: 100%; }
+
+/***************************************************/
+:root {
+  --header-font: 'Lato', sans-serif;
+  --body-font: 'Montserrat', sans-serif; }
+
+body {
+  font-family: var(--body-font); }
+
+@media (max-width: 599px) {
+  .box {
+    padding: 5rem 0 !important; } }
+
+@media (min-width: 600px) {
+  .box {
+    padding: 5rem 5rem !important; } }
+
+@media (min-width: 900px) {
+  .box {
+    padding: 5rem 15rem !important; } }
+
+@media (min-width: 1200px) {
+  .box {
+    padding: 5rem 10rem !important; } }
+
+@media (min-width: 1800px) {
+  .box {
+    padding: 5rem 12rem !important; } }
+
+.hide {
+  display: none !important; }
+
+.titulo {
+  font-family: var(--header-font);
+  color: var(--cta-color);
+  text-transform: capitalize;
+  letter-spacing: .5rem;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1rem; }
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh; }
+  .login__titulo {
+    font-family: var(--header-font) !important;
+    text-transform: uppercase !important;
+    color: var(--text-color) !important;
+    letter-spacing: .5rem;
+    font-size: 2rem !important;
+    font-weight: 300 !important; }
+  .login__inputs {
+    margin-bottom: 2rem; }

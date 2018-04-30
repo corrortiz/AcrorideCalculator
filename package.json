@@ -1,0 +1,41 @@
+{
+  "name": "AcrorideCalculator",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "formik": "^0.11.11",
+    "material-ui": "^1.0.0-beta.38",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "moment": "^2.22.0",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-transition": "^1.2.1",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote jsx-bracket-same-line arrow-parens<always> --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "foreman": "^2.0.0",
+    "lint-staged": "^7.0.0",
+    "node-sass-chokidar": "^1.2.2",
+    "prettier": "^1.11.0"
+  }
+}
