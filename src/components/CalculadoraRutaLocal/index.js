@@ -38,17 +38,17 @@ class CalculadoraRuta extends Component {
     FechaSericio: moment(Date.now()).format("YYYY-MM-DD"),
     Cliente: "",
     Vehiculo: "",
-    Viaticos: 0,
-    Comidas: 0,
-    Salario: 0,
-    Hotel: 0,
-    Gasolina: 0,
+    PuntoPartida: "",
+    PuntoDestino: "",
+    Descripcion: "",
     DerechoPiso: 0,
+    Salario: 0,
+    Gasolina: 0,
     Guia: 0,
     LunchBox: 0,
     Ganancias: 0,
+    Comicion: 0,
     Otro: 0,
-    Descripcion: ""
   };
 
   handleChange = prop => event => {
@@ -56,26 +56,22 @@ class CalculadoraRuta extends Component {
   };
 
   sumaTodo = () => {
-    let viaticos = Number(this.state.Viaticos);
-    let comidas = Number(this.state.Comidas);
-    let salario = Number(this.state.Salario);
-    let hotel = Number(this.state.Hotel);
-    let gasolina = Number(this.state.Gasolina);
     let derechoDePiso = Number(this.state.DerechoPiso);
+    let salario = Number(this.state.Salario);
+    let gasolina = Number(this.state.Gasolina);
     let guia = Number(this.state.Guia);
     let lunchBox = Number(this.state.LunchBox);
     let ganancias = Number(this.state.Ganancias);
+    let comicion = Number(this.state.Comicion);
     let otro = Number(this.state.Otro);
     let resultado =
-      viaticos +
-      comidas +
       salario +
-      hotel +
       gasolina +
       derechoDePiso +
       guia +
       lunchBox +
       ganancias +
+      comicion +
       otro;
     return resultado;
   };
@@ -156,16 +152,31 @@ class CalculadoraRuta extends Component {
               type="text"
             />
             <InputExtra
-              nombre="Viaticos"
-              monto={this.state.Viaticos}
+              nombre="Punto de Partida"
+              monto={this.state.PuntoPartida}
               cambioState={this.handleChange}
-              idProps="Viaticos"
+              idProps="PuntoPartida"
+              type="text"
             />
             <InputExtra
-              nombre="Comidas"
-              monto={this.state.Comidas}
+              nombre="Punto de Destino"
+              monto={this.state.PuntoDestino}
               cambioState={this.handleChange}
-              idProps="Comidas"
+              idProps="PuntoDestino"
+              type="text"
+            />
+            <InputExtra
+              nombre="Descripcion del servicio"
+              monto={this.state.Descripcion}
+              cambioState={this.handleChange}
+              idProps="Descripcion"
+              type="text"
+            />
+            <InputExtra
+              nombre="Derecho de Piso"
+              monto={this.state.DerechoPiso}
+              cambioState={this.handleChange}
+              idProps="DerechoPiso"
             />
             <InputExtra
               nombre="Salario"
@@ -174,22 +185,10 @@ class CalculadoraRuta extends Component {
               idProps="Salario"
             />
             <InputExtra
-              nombre="Hotel"
-              monto={this.state.Hotel}
-              cambioState={this.handleChange}
-              idProps="Hotel"
-            />
-            <InputExtra
               nombre="Gasolina"
               monto={this.state.Gasolina}
               cambioState={this.handleChange}
               idProps="Gasolina"
-            />
-            <InputExtra
-              nombre="Derecho de Piso"
-              monto={this.state.DerechoPiso}
-              cambioState={this.handleChange}
-              idProps="DerechoPiso"
             />
             <InputExtra
               nombre="Guia"
@@ -204,23 +203,22 @@ class CalculadoraRuta extends Component {
               idProps="LunchBox"
             />
             <InputExtra
+              nombre="Comicion"
+              monto={this.state.Comicion}
+              cambioState={this.handleChange}
+              idProps="Comicion"
+            />
+            <InputExtra
               nombre="Ganancias"
               monto={this.state.Ganancias}
               cambioState={this.handleChange}
               idProps="Ganancias"
             />
             <InputExtra
-              nombre="Otro"
+              nombre="Otros Gastos"
               monto={this.state.Otro}
               cambioState={this.handleChange}
               idProps="Otro"
-            />
-            <InputExtra
-              nombre="Descripcion del servicio"
-              monto={this.state.Descripcion}
-              cambioState={this.handleChange}
-              idProps="Descripcion"
-              type="text"
             />
             <Button
               className={`${classes.button}`}
