@@ -10,14 +10,11 @@ import Routs from '../Routs';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main:"#003c8f"
+      main:"#b56969"
     },
     secondary: {
-      main:"#e0e0e0"
+      main:"#e6cf8b"
     },
-    error:{
-      main:"#b56969"
-    }
   },
   typography: {
     htmlFontSize: 10

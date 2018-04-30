@@ -3,14 +3,8 @@ import { Route, withRouter } from 'react-router-dom';
 //Animate Routs
 import { spring, AnimatedSwitch, } from 'react-router-transition';
 //Internal Routs
-import IngresoPaciente from './IngresoPaciente';
-import AltaPaciente from './AltaPaciente';
-import ServiciosMedicos from './ServiciosMedicos';
-import AreasAuxiliares from './AreasAuxiliares';
-import HistorialEstudios from './HistorialEstudios';
-import AltaServicios from './AltaServicios';
-import AltaAreaAuxiliares from './AltaAreaAuxiliares';
-import CrearUsuarios from './CrearUsuarios';
+import Locales from './Locales';
+import Foraneos from './Foraneos';
 
 function glide(val) {
   return spring(val, {
@@ -43,14 +37,8 @@ export const Routs = withRouter(({ location }) => (
         })}
         className="switchRule"
       >
-        <Route path="/ingreso-paciente" component={IngresoPaciente} />
-        <Route path="/alta-paciente" component={AltaPaciente} />
-        <Route path="/servicios-medicos" component={ServiciosMedicos} />
-        <Route path="/areas-auxiliares" component={AreasAuxiliares} />
-        <Route path="/historial-de-estudios" component={HistorialEstudios} />
-        <Route path="/alta-de-servicios" component={AltaServicios} />
-        <Route path="/alta-area-auxiliares" component={AltaAreaAuxiliares} />
-        <Route path="/crear-usuarios" component={CrearUsuarios} />
+        <Route path="/locales" component={Locales} />
+        <Route path="/foraneos" component={Foraneos} />
       </AnimatedSwitch>
     </div>
   </Screen>

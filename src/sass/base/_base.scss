@@ -5,7 +5,6 @@
   --text-color:#22264b;
 }
 
-
 html{
   box-sizing: border-box;
   @include for-phone-only {
@@ -34,10 +33,14 @@ html{
 //Clases necesarias para cambiar de ruta
 /***************************************************/
 .screen{                                           //
-  height: 100vh;
+  height: 98vh;
   width: 100vw;
   overflow-y: auto;                                 //
-}                                                  // 
+}
+
+.screen__inner{                                           //
+  width: 50vw;
+} 
                                                    // 
 .switchRule {                                      //
   position: relative;                              //

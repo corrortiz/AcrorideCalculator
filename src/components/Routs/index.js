@@ -1,18 +1,10 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 //Animate Routs
-import { spring, AnimatedSwitch, AnimatedRoute } from 'react-router-transition';
+import { spring, AnimatedSwitch } from 'react-router-transition';
 //Internal Routs
-import Landing from './Landing';
 import App from './App';
 import AppBar from '../AppBar';
-
-function glide(val) {
-  return spring(val, {
-    stiffness: 174,
-    damping: 24
-  });
-}
 
 function slide(val) {
   return spring(val, {
@@ -20,18 +12,6 @@ function slide(val) {
     damping: 16,
   });
 }
-
-const pageTransitions = {
-  atEnter: {
-    offset: 100
-  },
-  atLeave: {
-    offset: glide(-100)
-  },
-  atActive: {
-    offset: glide(0)
-  }
-};
 
 const topBarTransitions = {
   atEnter: {
@@ -45,7 +25,7 @@ const topBarTransitions = {
   },
 };
 
-const Screen = ({ children }) => <div className="screen">{children}</div>;
+const Screen = ({ children }) => <div className="screen__inner">{children}</div>;
 
 /**
  * Basic component for react-router where the routes and their components are declared
@@ -55,26 +35,17 @@ export const Routs = withRouter(({ location }) => (
   <Screen>
     <div className="rule">
       <AnimatedSwitch
-        {...pageTransitions}
-        runOnMount={location.pathname === '/'}
+        {...topBarTransitions}
+        runOnMount={location.pathname === '/locales'}
         mapStyles={styles => ({
-          transform: `translateX(${styles.offset}%)`
+          transform: `translateY(${styles.offset}%)`
         })}
         className="switchRule"
         location={location}
       >
-        <Route exact path="/" component={Landing} />
+        <Route path="/:sub" component={AppBar} />
         <Route component={App} />
       </AnimatedSwitch>
-      <AnimatedRoute
-        {...topBarTransitions}
-        path="/:suhDude+"
-        component={AppBar}
-        className="routeRule"
-        mapStyles={styles => ({
-          transform: `translateY(${styles.offset}%)`
-        })}
-      />
     </div>
   </Screen>
 ));

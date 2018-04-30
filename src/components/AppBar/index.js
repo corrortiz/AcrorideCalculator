@@ -10,7 +10,7 @@ import IconButton from 'material-ui/IconButton';
 import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
-import { inicialListItems, medioListItems, finalListItems, salirListItems } from './tileData';
+import { inicialListItems } from './tileData';
 
 import App from '../Routs/App';
 
@@ -23,7 +23,7 @@ const styles = theme => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
-    width: '100%',
+    width: '80%',
   },
   appBar: {
     position: 'absolute',
@@ -45,9 +45,8 @@ const styles = theme => ({
     },
   },
   content: {
-    flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing.unit * 2,
   },
 });
 //TODO: cerrar en click
@@ -61,19 +60,15 @@ class AppBarDrawer extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
 
     const drawer = (
       <div>
         <div className={classes.toolbar} />
         <Divider />
+        <Divider />
         <List>{inicialListItems}</List>
         <Divider />
-        <List>{medioListItems}</List>
-        <Divider />
-        <List>{finalListItems}</List>
-        <Divider />
-        <List>{salirListItems}</List>
       </div>
     );
 
@@ -90,14 +85,13 @@ class AppBarDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              Tablero de Control y Seguimiento ISSSTE
+              Cotizador Online de Acroride
             </Typography>
           </Toolbar>
         </AppBar>
         <Hidden mdUp>
           <Drawer
             variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={this.state.mobileOpen}
             onClose={this.handleDrawerToggle}
             classes={{
@@ -132,7 +126,6 @@ class AppBarDrawer extends React.Component {
 
 AppBarDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(AppBarDrawer);
+export default withStyles(styles)(AppBarDrawer);

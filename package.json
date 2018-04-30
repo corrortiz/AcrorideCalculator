@@ -5,10 +5,12 @@
   "license": "MIT",
   "dependencies": {
     "formik": "^0.11.11",
+    "jspdf": "^1.3.5",
     "material-ui": "^1.0.0-beta.38",
     "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.22.0",
     "npm-run-all": "^4.1.2",
+    "numeral": "^2.0.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",

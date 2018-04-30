@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class AltaPaciente extends Component {
+class Foraneos extends Component {
   render() {
     return (
       <div>
-        <h1>Alta Paciente</h1>
+        <h1>Foraneos</h1>
       </div>
     );
   }
 }
 
-export default AltaPaciente;
+export default Foraneos;

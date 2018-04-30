@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import jsPDF from "jspdf";
 import moment from "moment";
 //Material UI Controls
@@ -13,14 +12,13 @@ import InputExtra from "./InputExtra";
 import ResultadoTotal from "./ResultadoTotal";
 //API de Formato
 import numeral from "numeral";
-
 //CSS in JS
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
-    marginTop: theme.spacing.unit * 3,
-    width: "85vw"
+    marginTop: theme.spacing.unit * 1,
+    width: "70vw"
   }),
   button: {
     margin: theme.spacing.unit,
@@ -67,7 +65,6 @@ class CalculadoraRuta extends Component {
     let guia = Number(this.state.Guia);
     let lunchBox = Number(this.state.LunchBox);
     let ganancias = Number(this.state.Ganancias);
-    let casetas = Number(this.props.resultadoRuta.costo_caseta);
     let otro = Number(this.state.Otro);
     let resultado =
       viaticos +
@@ -79,67 +76,17 @@ class CalculadoraRuta extends Component {
       guia +
       lunchBox +
       ganancias +
-      casetas +
       otro;
-    return numeral(resultado).format("$0,0.00");
+    return resultado;
   };
 
   sumaIva = () => {
-    let viaticos = Number(this.state.Viaticos);
-    let comidas = Number(this.state.Comidas);
-    let salario = Number(this.state.Salario);
-    let hotel = Number(this.state.Hotel);
-    let gasolina = Number(this.state.Gasolina);
-    let derechoDePiso = Number(this.state.DerechoPiso);
-    let guia = Number(this.state.Guia);
-    let lunchBox = Number(this.state.LunchBox);
-    let ganancias = Number(this.state.Ganancias);
-    let casetas = Number(this.props.resultadoRuta.costo_caseta);
-    let otro = Number(this.state.Otro);
-    let resultado =
-      viaticos +
-      comidas +
-      salario +
-      hotel +
-      gasolina +
-      derechoDePiso +
-      guia +
-      lunchBox +
-      ganancias +
-      casetas +
-      otro;
-
-    let IVA = resultado * 0.16;
-    return numeral(IVA).format("$0,0.00");
+    let IVA = this.sumaTodo() * 0.16;
+    return IVA;
   };
 
   sumaTotal = () => {
-    let viaticos = Number(this.state.Viaticos);
-    let comidas = Number(this.state.Comidas);
-    let salario = Number(this.state.Salario);
-    let hotel = Number(this.state.Hotel);
-    let gasolina = Number(this.state.Gasolina);
-    let derechoDePiso = Number(this.state.DerechoPiso);
-    let guia = Number(this.state.Guia);
-    let lunchBox = Number(this.state.LunchBox);
-    let ganancias = Number(this.state.Ganancias);
-    let casetas = Number(this.props.resultadoRuta.costo_caseta);
-    let otro = Number(this.state.Otro);
-    let resultado =
-      viaticos +
-      comidas +
-      salario +
-      hotel +
-      gasolina +
-      derechoDePiso +
-      guia +
-      lunchBox +
-      ganancias +
-      casetas +
-      otro;
-
-    let IVA = resultado * 0.16 + resultado;
-    return numeral(IVA).format("$0,0.00");
+    return this.sumaTodo() + this.sumaIva();
   };
 
   makePdf = () => {
@@ -181,9 +128,9 @@ class CalculadoraRuta extends Component {
           <div className="calculadora__header">
             <h1 className="calculadora__header__titulo">Cotización</h1>
             <ResultadoTotal
-              IVA={this.sumaIva()}
-              subTotal={this.sumaTodo()}
-              total={this.sumaTotal()}
+              IVA={numeral(this.sumaIva()).format("$0,0.00")}
+              subTotal={numeral(this.sumaTodo()).format("$0,0.00")}
+              total={numeral(this.sumaTotal()).format("$0,0.00")}
             />
           </div>
           <div className="calculadora__extra">
@@ -294,13 +241,5 @@ class CalculadoraRuta extends Component {
 CalculadoraRuta.propTypes = {
   classes: PropTypes.object.isRequired
 };
-
-const mapStateToProps = state => {
-  return {
-    resultadoRuta: state.resultadoRuta.resultadoCalculoRuta
-  };
-};
-
-CalculadoraRuta = connect(mapStateToProps, null)(CalculadoraRuta);
 
 export default withStyles(styles)(CalculadoraRuta);
