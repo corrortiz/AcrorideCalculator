@@ -23,7 +23,6 @@ const styles = theme => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
-    width: '80%',
   },
   appBar: {
     position: 'absolute',
@@ -47,6 +46,7 @@ const styles = theme => ({
   content: {
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 2,
+    width: `calc(100% - ${drawerWidth}px)`,
   },
 });
 //TODO: cerrar en click

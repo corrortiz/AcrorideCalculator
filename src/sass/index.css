@@ -32,12 +32,8 @@ html {
 
 /***************************************************/
 .screen {
-  height: 98vh;
-  width: 100vw;
-  overflow-y: auto; }
-
-.screen__inner {
-  width: 50vw; }
+  height: 100vh;
+  width: 100vw; }
 
 .switchRule {
   position: relative; }
@@ -161,17 +157,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center; }
-  .calculadora__extra {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap; }
-    .calculadora__extra__container__input {
-      font-family: var(--body-font) !important;
-      color: var(--text-color) !important;
-      text-transform: uppercase !important;
-      letter-spacing: .5rem !important;
-      text-align: center !important;
-      font-size: 2rem !important;
-      font-weight: 300 !important;
-      margin: 1rem; }
+  .calculadora__extra__container__input {
+    font-family: var(--body-font) !important;
+    color: var(--text-color) !important;
+    text-transform: uppercase !important;
+    letter-spacing: .5rem !important;
+    text-align: center !important;
+    font-size: 2rem !important;
+    font-weight: 300 !important;
+    margin: 1rem; }

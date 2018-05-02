@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 import { FormControl} from 'material-ui/Form';
-import IconButton from 'material-ui/IconButton';
 import AddBox from 'material-ui-icons/AddBox';
 
 //CSS in JS
@@ -43,23 +42,21 @@ class InputExtra extends Component {
 
             <Input
               id={`extra_${nombre}`}
+              fullWidth
               classes={{
-                inkbar: classes.inputInkbar,
-                underline: classes.inkbar,
+                focused: classes.inputLabelFocused,
+                underline: classes.inputInkbar,
               }}
               type={type || 'number'}
               value={monto}
               onChange={cambioState(idProps)}
               className="calculadora__extra__container__input"
               endAdornment={
-                <InputAdornment position="end">
-                  <IconButton>
-                    <AddBox className={classes.iconbutton}/>
-                  </IconButton>
+                <InputAdornment position="start">
+                  <AddBox className={classes.iconbutton}/>
                 </InputAdornment>
               }
             />
-
           </FormControl>
         </div>
     );

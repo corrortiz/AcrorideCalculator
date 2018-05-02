@@ -25,7 +25,7 @@ const topBarTransitions = {
   },
 };
 
-const Screen = ({ children }) => <div className="screen__inner">{children}</div>;
+const Screen = ({ children }) => <div className="screen">{children}</div>;
 
 /**
  * Basic component for react-router where the routes and their components are declared

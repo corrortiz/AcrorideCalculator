@@ -5,6 +5,7 @@ import moment from "moment";
 //Material UI Controls
 import { withStyles } from "material-ui/styles";
 import Paper from "material-ui/Paper";
+import Grid from 'material-ui/Grid';
 import Button from "material-ui/Button";
 import Save from "material-ui-icons/Save";
 //Internal Controls
@@ -18,7 +19,6 @@ const styles = theme => ({
     paddingTop: 16,
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 1,
-    width: "70vw"
   }),
   button: {
     margin: theme.spacing.unit,
@@ -35,20 +35,20 @@ const styles = theme => ({
  */
 class CalculadoraRuta extends Component {
   state = {
-    FechaSericio: moment(Date.now()).format("YYYY-MM-DD"),
+    FechaServicio: moment(Date.now()).format("YYYY-MM-DD"),
     Cliente: "",
     Vehiculo: "",
     PuntoPartida: "",
     PuntoDestino: "",
     Descripcion: "",
-    DerechoPiso: 0,
-    Salario: 0,
-    Gasolina: 0,
-    Guia: 0,
-    LunchBox: 0,
-    Ganancias: 0,
-    Comicion: 0,
-    Otro: 0,
+    DerechoPiso: "",
+    Salario: "",
+    Gasolina: "",
+    Guia: "",
+    LunchBox: "",
+    Ganancias: "",
+    Comicion: "",
+    Otro: "",
   };
 
   handleChange = prop => event => {
@@ -93,7 +93,7 @@ class CalculadoraRuta extends Component {
     doc.setFontSize(16);
     doc.text(`Fecha: ${moment(Date.now()).format("YYYY-MM-DD")}`, 10, 30);
     doc.text(`Cotizacion para  ${this.state.Cliente}`, 10, 50);
-    doc.text(`Fecha Servicio: ${this.state.FechaSericio}`, 10, 60);
+    doc.text(`Fecha Servicio: ${this.state.FechaServicio}`, 10, 60);
     doc.text(
       `Descripcion del servicio: ${this.state.Descripcion} en el vehiculo: ${
         this.state.Vehiculo
@@ -130,105 +130,137 @@ class CalculadoraRuta extends Component {
             />
           </div>
           <div className="calculadora__extra">
-            <InputExtra
-              nombre="Fecha Servicio"
-              monto={this.state.FechaSericio}
-              cambioState={this.handleChange}
-              idProps="FechaSericio"
-              type="Date"
-            />
-            <InputExtra
-              nombre="Cliente"
-              monto={this.state.Cliente}
-              cambioState={this.handleChange}
-              idProps="Cliente"
-              type="text"
-            />
-            <InputExtra
-              nombre="Vehiculo"
-              monto={this.state.Vehiculo}
-              cambioState={this.handleChange}
-              idProps="Vehiculo"
-              type="text"
-            />
-            <InputExtra
-              nombre="Punto de Partida"
-              monto={this.state.PuntoPartida}
-              cambioState={this.handleChange}
-              idProps="PuntoPartida"
-              type="text"
-            />
-            <InputExtra
-              nombre="Punto de Destino"
-              monto={this.state.PuntoDestino}
-              cambioState={this.handleChange}
-              idProps="PuntoDestino"
-              type="text"
-            />
-            <InputExtra
-              nombre="Descripcion del servicio"
-              monto={this.state.Descripcion}
-              cambioState={this.handleChange}
-              idProps="Descripcion"
-              type="text"
-            />
-            <InputExtra
-              nombre="Derecho de Piso"
-              monto={this.state.DerechoPiso}
-              cambioState={this.handleChange}
-              idProps="DerechoPiso"
-            />
-            <InputExtra
-              nombre="Salario"
-              monto={this.state.Salario}
-              cambioState={this.handleChange}
-              idProps="Salario"
-            />
-            <InputExtra
-              nombre="Gasolina"
-              monto={this.state.Gasolina}
-              cambioState={this.handleChange}
-              idProps="Gasolina"
-            />
-            <InputExtra
-              nombre="Guia"
-              monto={this.state.Guia}
-              cambioState={this.handleChange}
-              idProps="Guia"
-            />
-            <InputExtra
-              nombre="Lunch Box"
-              monto={this.state.LunchBox}
-              cambioState={this.handleChange}
-              idProps="LunchBox"
-            />
-            <InputExtra
-              nombre="Comicion"
-              monto={this.state.Comicion}
-              cambioState={this.handleChange}
-              idProps="Comicion"
-            />
-            <InputExtra
-              nombre="Ganancias"
-              monto={this.state.Ganancias}
-              cambioState={this.handleChange}
-              idProps="Ganancias"
-            />
-            <InputExtra
-              nombre="Otros Gastos"
-              monto={this.state.Otro}
-              cambioState={this.handleChange}
-              idProps="Otro"
-            />
-            <Button
-              className={`${classes.button}`}
-              variant="raised"
-              color="secondary"
-              onClick={this.makePdf}
-            >
-              Guarda
-              <Save className={classes.rightIcon} />
-            </Button>
+            <Grid container spacing={24}>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Fecha Servicio"
+                  monto={this.state.FechaServicio}
+                  cambioState={this.handleChange}
+                  idProps="FechaServicio"
+                  type="Date"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Cliente"
+                  monto={this.state.Cliente}
+                  cambioState={this.handleChange}
+                  idProps="Cliente"
+                  type="text"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Vehiculo"
+                  monto={this.state.Vehiculo}
+                  cambioState={this.handleChange}
+                  idProps="Vehiculo"
+                  type="text"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Punto de Partida"
+                  monto={this.state.PuntoPartida}
+                  cambioState={this.handleChange}
+                  idProps="PuntoPartida"
+                  type="text"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Punto de Destino"
+                  monto={this.state.PuntoDestino}
+                  cambioState={this.handleChange}
+                  idProps="PuntoDestino"
+                  type="text"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Descripcion del servicio"
+                  monto={this.state.Descripcion}
+                  cambioState={this.handleChange}
+                  idProps="Descripcion"
+                  type="text"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Derecho de Piso"
+                  monto={this.state.DerechoPiso}
+                  cambioState={this.handleChange}
+                  idProps="DerechoPiso"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Salario"
+                  monto={this.state.Salario}
+                  cambioState={this.handleChange}
+                  idProps="Salario"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Gasolina"
+                  monto={this.state.Gasolina}
+                  cambioState={this.handleChange}
+                  idProps="Gasolina"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Guia"
+                  monto={this.state.Guia}
+                  cambioState={this.handleChange}
+                  idProps="Guia"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Lunch Box"
+                  monto={this.state.LunchBox}
+                  cambioState={this.handleChange}
+                  idProps="LunchBox"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Comicion"
+                  monto={this.state.Comicion}
+                  cambioState={this.handleChange}
+                  idProps="Comicion"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Ganancias"
+                  monto={this.state.Ganancias}
+                  cambioState={this.handleChange}
+                  idProps="Ganancias"
+                />
+              </Grid>
+              <Grid item xs>
+                <InputExtra
+                  nombre="Otros Gastos"
+                  monto={this.state.Otro}
+                  cambioState={this.handleChange}
+                  idProps="Otro"
+                />
+              </Grid>
+              <Grid item xs>
+                <Button
+                  className={`${classes.button}`}
+                  variant="raised"
+                  color="secondary"
+                  onClick={this.makePdf}
+                >
+                  Guarda
+                  <Save className={classes.rightIcon} />
+                </Button>
+              </Grid>
+            </Grid>
           </div>
         </Paper>
       </div>

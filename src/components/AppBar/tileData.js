@@ -3,8 +3,8 @@ import Link from 'react-router-dom/Link';
 //Material UI Components
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 //ICons
-import Accessible from 'material-ui-icons/Accessible';
-import DirectionsRun from 'material-ui-icons/DirectionsRun';
+import DirectionsCar from 'material-ui-icons/DirectionsCar';
+import LocalShipping from 'material-ui-icons/LocalShipping';
 
 const style = {
   fill: "#e6cf8b"
@@ -18,7 +18,7 @@ export const inicialListItems = (
       to="/locales"
     >
       <ListItemIcon>
-        <Accessible style={style} />
+        <DirectionsCar style={style} />
       </ListItemIcon>
       <ListItemText primary="Viaje Local" />
     </ListItem>
@@ -29,7 +29,7 @@ export const inicialListItems = (
       to="/foraneos" 
     >
       <ListItemIcon>
-        <DirectionsRun style={style}/>
+        <LocalShipping style={style}/>
       </ListItemIcon>
       <ListItemText primary="Viaje Foranio" />
     </ListItem>

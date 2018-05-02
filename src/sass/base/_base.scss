@@ -33,14 +33,10 @@ html{
 //Clases necesarias para cambiar de ruta
 /***************************************************/
 .screen{                                           //
-  height: 98vh;
+  height: 100vh;
   width: 100vw;
-  overflow-y: auto;                                 //
 }
 
-.screen__inner{                                           //
-  width: 50vw;
-} 
                                                    // 
 .switchRule {                                      //
   position: relative;                              //
