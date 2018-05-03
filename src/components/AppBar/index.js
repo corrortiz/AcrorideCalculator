@@ -1,20 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Drawer from 'material-ui/Drawer';
+import SwipeableDrawer from 'material-ui/SwipeableDrawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
-import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 import { inicialListItems } from './tileData';
 
 import App from '../Routs/App';
-
-const drawerWidth = 270;
 
 const styles = theme => ({
   root: {
@@ -24,49 +21,36 @@ const styles = theme => ({
     position: 'relative',
     display: 'flex',
   },
-  appBar: {
-    position: 'absolute',
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-    },
-  },
-  navIconHide: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
   toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      position: 'relative',
-    },
-  },
   content: {
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 2,
-    width: `calc(100% - ${drawerWidth}px)`,
+  },
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
   },
 });
 //TODO: cerrar en click
 class AppBarDrawer extends React.Component {
   state = {
-    mobileOpen: false,
+    openDrawer: false,
   };
 
-  handleDrawerToggle = () => {
-    this.setState({ mobileOpen: !this.state.mobileOpen });
+  toggleDrawer = (open) => () => {
+    this.setState({
+      openDrawer: open,
+    });
   };
 
   render() {
     const { classes } = this.props;
 
-    const drawer = (
+    const sideList = (
       <div>
-        <div className={classes.toolbar} />
-        <Divider />
-        <Divider />
+        <div className={classes.list} />
         <List>{inicialListItems}</List>
         <Divider />
       </div>
@@ -79,8 +63,7 @@ class AppBarDrawer extends React.Component {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.navIconHide}
+              onClick={this.toggleDrawer(true)}
             >
               <MenuIcon />
             </IconButton>
@@ -89,32 +72,20 @@ class AppBarDrawer extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Hidden mdUp>
-          <Drawer
-            variant="temporary"
-            open={this.state.mobileOpen}
-            onClose={this.handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
+        <SwipeableDrawer
+          open={this.state.openDrawer}
+          onClose={this.toggleDrawer(false)}
+          onOpen={this.toggleDrawer(true)}
+        >
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={this.toggleDrawer(false)}
+            onKeyDown={this.toggleDrawer(false)}
           >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden smDown implementation="css">
-          <Drawer
-            variant="permanent"
-            open
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
+            {sideList}
+          </div>
+        </SwipeableDrawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <App/>
