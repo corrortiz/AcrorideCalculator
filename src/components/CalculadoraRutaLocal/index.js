@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import jsPDF from "jspdf";
 import moment from "moment";
 //Material UI Controls
 import { withStyles } from "material-ui/styles";
@@ -11,6 +10,7 @@ import Save from "material-ui-icons/Save";
 //Internal Controls
 import InputExtra from "./InputExtra";
 import ResultadoTotal from "./ResultadoTotal";
+import {makePdf} from './reporte';
 //API de Formato
 import numeral from "numeral";
 //CSS in JS
@@ -85,37 +85,11 @@ class CalculadoraRuta extends Component {
     return this.sumaTodo() + this.sumaIva();
   };
 
-  makePdf = () => {
-    let doc = new jsPDF();
-
-    doc.setFontSize(22);
-    doc.text("Acroride Cotizacion ", 10, 20);
-    doc.setFontSize(16);
-    doc.text(`Fecha: ${moment(Date.now()).format("YYYY-MM-DD")}`, 10, 30);
-    doc.text(`Cotizacion para  ${this.state.Cliente}`, 10, 50);
-    doc.text(`Fecha Servicio: ${this.state.FechaServicio}`, 10, 60);
-    doc.text(
-      `Descripcion del servicio: ${this.state.Descripcion} en el vehiculo: ${
-        this.state.Vehiculo
-      }`,
-      10,
-      75
-    );
-    doc.text(`Servicio`, 10, 160);
-    doc.text(`-- ${this.sumaTodo()}`, 150, 160);
-    doc.text(`IVA`, 10, 170);
-    doc.text(`--${this.sumaIva()}`, 150, 170);
-    doc.text(
-      `________________________________________________________`,
-      10,
-      180
-    );
-    doc.text(`Total`, 10, 190);
-    doc.text(`-- ${this.sumaTotal()}`, 150, 190);
-
-    doc.save("cotización.pdf");
-  };
-
+  generateReport = () => {
+    const {Cliente, FechaServicio, Descripcion, Vehiculo} = this.state
+    makePdf(Cliente, FechaServicio, Descripcion, Vehiculo, this.sumaTodo(), this.sumaIva(), this.sumaTotal());
+  }
+  
   render() {
     const { classes } = this.props;
     return (
@@ -254,7 +228,7 @@ class CalculadoraRuta extends Component {
                   className={`${classes.button}`}
                   variant="raised"
                   color="secondary"
-                  onClick={this.makePdf}
+                  onClick={this.generateReport}
                 >
                   Guarda
                   <Save className={classes.rightIcon} />
